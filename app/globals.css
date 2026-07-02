@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor jumps for the sticky navbar. */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-base text-ink font-sans antialiased;
+    background-image: linear-gradient(180deg, #0b0d14 0%, #0f1117 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Respect reduced-motion for every animation & transition. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  ::selection {
+    background: rgba(56, 220, 242, 0.25);
+    color: #f4f7fb;
+  }
+
+  :focus-visible {
+    outline: 2px solid #38dcf2;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-edge bg-panel shadow-panel;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  /* Faint grid backdrop used behind hero / CTA. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(35, 40, 56, 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(35, 40, 56, 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+@layer utilities {
+  /* Thin, on-brand scrollbar for terminal/dashboard panes. */
+  .scrollbar-brand {
+    scrollbar-width: thin;
+    scrollbar-color: #232838 transparent;
+  }
+  .scrollbar-brand::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-brand::-webkit-scrollbar-thumb {
+    background-color: #232838;
+    border-radius: 999px;
+  }
+  .scrollbar-brand::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}

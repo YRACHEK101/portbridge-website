@@ -1,0 +1,36 @@
+<svg viewBox="0 0 360 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="portbridge">
+  <defs>
+    <linearGradient id="pb-stream-top" x1="2" y1="14" x2="30" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="pb-stream-bottom" x1="2" y1="34" x2="30" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c084fc" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="pb-ring" x1="30" y1="12" x2="46" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38dcf2"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="pb-core" cx="0.5" cy="0.5" r="0.5">
+      <stop stop-color="#eafbff"/>
+      <stop offset="0.55" stop-color="#8fe9ff"/>
+      <stop offset="1" stop-color="#c084fc" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="pb-text" x1="150" y1="24" x2="330" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38dcf2"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(6,12)">
+    <g stroke-linecap="round" fill="none" stroke-width="3.2">
+      <path d="M3 15 C 16 15, 22 20, 33 24" stroke="url(#pb-stream-top)"/>
+      <path d="M3 33 C 16 33, 22 28, 33 24" stroke="url(#pb-stream-bottom)"/>
+    </g>
+    <circle cx="34" cy="24" r="10" stroke="url(#pb-ring)" stroke-width="3.4" fill="none"/>
+    <circle cx="34" cy="24" r="4.4" fill="url(#pb-core)"/>
+  </g>
+  <text x="64" y="47" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1">
+    <tspan fill="#e6e9ef">port</tspan><tspan fill="url(#pb-text)">bridge</tspan>
+  </text>
+</svg>
