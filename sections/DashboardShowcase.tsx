@@ -37,15 +37,15 @@ export function DashboardShowcase() {
           for a live view of traffic crossing the front↔back boundary.
         </SectionHeading>
 
-        <div className="mt-12 grid items-center gap-8 lg:grid-cols-[1.5fr_1fr]">
-          <Reveal>
+        <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.5fr_1fr]">
+          <Reveal className="min-w-0">
             <DashboardMock />
             <p className="mt-3 text-center text-sm text-ink-muted">
               See every request cross the front↔back boundary, live.
             </p>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="min-w-0">
             <ul className="space-y-5">
               {bullets.map((b) => (
                 <li key={b.title} className="flex gap-4">

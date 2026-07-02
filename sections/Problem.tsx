@@ -42,10 +42,10 @@ export function Problem() {
           </h2>
         </Reveal>
 
-        <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {pains.map((pain) => (
-            <RevealItem key={pain.title}>
-              <div className="h-full rounded-2xl border border-err/20 bg-err/[0.04] p-5 transition-colors hover:border-err/35">
+            <RevealItem key={pain.title} className="min-w-0">
+              <div className="h-full min-w-0 rounded-2xl border border-err/20 bg-err/[0.04] p-5 transition-colors hover:border-err/35">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-err/25 bg-err/10 text-err">
                   <pain.icon className="h-5 w-5" />
                 </div>

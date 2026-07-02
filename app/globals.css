@@ -19,6 +19,8 @@
     background-attachment: fixed;
     min-height: 100vh;
     text-rendering: optimizeLegibility;
+    /* Safety net: never let the page itself scroll sideways on mobile. */
+    overflow-x: clip;
   }
 
   /* Respect reduced-motion for every animation & transition. */

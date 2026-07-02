@@ -97,9 +97,9 @@ export function QuickStart() {
           ), drop in a config, then run one command.
         </SectionHeading>
 
-        <div className="mx-auto mt-12 grid max-w-3xl gap-6">
-          <Reveal>
-            <div>
+        <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6">
+          <Reveal className="min-w-0">
+            <div className="min-w-0">
               <div className="mb-2 flex items-center gap-2 text-sm font-medium text-ink-muted">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-gradient text-xs font-bold text-[#08111a]">
                   1
@@ -116,8 +116,8 @@ export function QuickStart() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.05}>
-            <div>
+          <Reveal delay={0.05} className="min-w-0">
+            <div className="min-w-0">
               <div className="mb-2 flex items-center gap-2 text-sm font-medium text-ink-muted">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-gradient text-xs font-bold text-[#08111a]">
                   2
@@ -139,8 +139,8 @@ export function QuickStart() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <div>
+          <Reveal delay={0.1} className="min-w-0">
+            <div className="min-w-0">
               <div className="mb-2 flex items-center gap-2 text-sm font-medium text-ink-muted">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-gradient text-xs font-bold text-[#08111a]">
                   3

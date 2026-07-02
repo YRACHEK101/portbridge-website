@@ -135,7 +135,7 @@ export function AnimatedTerminal() {
         </>
       }
     >
-      <div className="scrollbar-brand h-[360px] overflow-hidden px-4 py-4 font-mono text-[12.5px] leading-relaxed sm:text-[13px]">
+      <div className="scrollbar-brand h-[360px] overflow-y-hidden overflow-x-auto px-3 py-4 font-mono text-[11px] leading-relaxed sm:px-4 sm:text-[13px]">
         {/* Prompt line */}
         <div className="flex items-center whitespace-pre">
           <span className="text-ok">➜</span>

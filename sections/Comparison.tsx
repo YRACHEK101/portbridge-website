@@ -49,6 +49,7 @@ export function Comparison() {
 
         <Reveal delay={0.05} className="mx-auto mt-12 max-w-3xl">
           <div className="panel overflow-hidden">
+            <div className="scrollbar-brand overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <caption className="sr-only">
                 Feature comparison between a manual concurrently plus CORS setup
@@ -58,16 +59,16 @@ export function Comparison() {
                 <tr className="border-b border-edge">
                   <th
                     scope="col"
-                    className="px-5 py-4 text-left font-medium text-ink-muted"
+                    className="px-3 py-4 text-left font-medium text-ink-muted sm:px-5"
                   >
                     Capability
                   </th>
                   <th
                     scope="col"
-                    className="px-4 py-4 text-center font-medium text-ink-muted"
+                    className="px-3 py-4 text-center font-medium text-ink-muted sm:px-4"
                   >
                     <span className="hidden sm:inline">manual </span>
-                    <span className="whitespace-nowrap font-mono text-xs">
+                    <span className="font-mono text-[11px] sm:text-xs">
                       (concurrently + CORS)
                     </span>
                   </th>
@@ -90,14 +91,14 @@ export function Comparison() {
                   >
                     <th
                       scope="row"
-                      className="px-5 py-3.5 text-left font-normal text-ink"
+                      className="px-3 py-3.5 text-left font-normal text-ink sm:px-5"
                     >
                       {row.label}
                     </th>
-                    <td className="px-4 py-3.5 text-center">
+                    <td className="px-3 py-3.5 text-center sm:px-4">
                       <Cell value={row.manual} />
                     </td>
-                    <td className="relative px-4 py-3.5 text-center">
+                    <td className="relative px-3 py-3.5 text-center sm:px-4">
                       <span className="absolute inset-x-2 inset-y-0 -z-0 bg-brand-gradient-soft" />
                       <span className="relative">
                         <Cell value={row.pb} />
@@ -107,6 +108,7 @@ export function Comparison() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </Reveal>
       </div>

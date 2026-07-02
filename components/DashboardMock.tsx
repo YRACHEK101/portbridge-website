@@ -141,7 +141,7 @@ export function DashboardMock() {
     >
       <div className="px-2 py-2 sm:px-3 sm:py-3">
         {/* Column header */}
-        <div className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-3 border-b border-edge px-3 pb-2 text-[11px] font-medium uppercase tracking-wider text-ink-muted md:grid-cols-[68px_54px_1fr_104px_48px_170px]">
+        <div className="grid grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-3 border-b border-edge px-3 pb-2 text-[11px] font-medium uppercase tracking-wider text-ink-muted md:grid-cols-[68px_54px_minmax(0,1fr)_104px_48px_170px]">
           <span className="hidden md:block">Time</span>
           <span>Method</span>
           <span>Path</span>
@@ -160,7 +160,7 @@ export function DashboardMock() {
                 animate={{ opacity: 1, y: 0, backgroundColor: "rgba(0,0,0,0)" }}
                 exit={reduce ? undefined : { opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-3 rounded-lg px-3 py-2 font-mono text-[12.5px] md:grid-cols-[68px_54px_1fr_104px_48px_170px]"
+                className="grid grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-3 rounded-lg px-3 py-2 font-mono text-[12.5px] md:grid-cols-[68px_54px_minmax(0,1fr)_104px_48px_170px]"
               >
                 <span className="hidden text-ink-muted md:block">{row.time}</span>
                 <span className="font-semibold text-ink/90">{row.method}</span>
