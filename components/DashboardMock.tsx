@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { TerminalChrome } from "./TerminalChrome";
 
@@ -81,7 +81,8 @@ function Waterfall({ ms, target }: { ms: number; target: Target }) {
 }
 
 export function DashboardMock() {
-  const reduce = useReducedMotion();
+  // This is a "live" product demo, so it streams on every device — the motion
+  // is essential to what it communicates (WCAG 2.3.3 exception).
   const [rows, setRows] = useState<Row[]>([]);
   const idRef = useRef(0);
   const poolRef = useRef(0);
@@ -99,11 +100,6 @@ export function DashboardMock() {
       return out;
     };
 
-    if (reduce) {
-      setRows(seed(MAX_ROWS));
-      return;
-    }
-
     setRows(seed(4));
     const interval = setInterval(() => {
       setRows((prev) => {
@@ -119,7 +115,7 @@ export function DashboardMock() {
       });
     }, 1600);
     return () => clearInterval(interval);
-  }, [reduce]);
+  }, []);
 
   return (
     <TerminalChrome
@@ -128,9 +124,12 @@ export function DashboardMock() {
         <>
           <span className="flex items-center gap-1.5">
             <span className="relative flex h-2 w-2">
-              {!reduce && (
-                <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-ok/70" />
-              )}
+              <motion.span
+                aria-hidden
+                className="absolute inline-flex h-full w-full rounded-full bg-ok/70"
+                animate={{ scale: [1, 2.2], opacity: [0.7, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+              />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-ok" />
             </span>
             live
@@ -155,10 +154,10 @@ export function DashboardMock() {
             {rows.map((row) => (
               <motion.div
                 key={row.id}
-                layout={!reduce}
-                initial={reduce ? false : { opacity: 0, y: -8, backgroundColor: "rgba(56,220,242,0.06)" }}
+                layout
+                initial={{ opacity: 0, y: -8, backgroundColor: "rgba(56,220,242,0.06)" }}
                 animate={{ opacity: 1, y: 0, backgroundColor: "rgba(0,0,0,0)" }}
-                exit={reduce ? undefined : { opacity: 0 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-3 rounded-lg px-3 py-2 font-mono text-[12.5px] md:grid-cols-[68px_54px_minmax(0,1fr)_104px_48px_170px]"
               >

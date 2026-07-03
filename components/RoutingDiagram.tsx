@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import Logo from "./Logo";
 
@@ -94,30 +94,29 @@ function Pipe({
   to?: string;
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
-
-  const Dot = ({ vertical }: { vertical: boolean }) =>
-    reduce ? null : (
-      <motion.span
-        aria-hidden
-        className="absolute h-2 w-2 rounded-full"
-        style={{
-          background: to,
-          boxShadow: `0 0 8px 1px ${to}`,
-          ...(vertical
-            ? { left: "50%", marginLeft: -4 }
-            : { top: "50%", marginTop: -4 }),
-        }}
-        initial={vertical ? { top: "0%" } : { left: "0%" }}
-        animate={vertical ? { top: ["0%", "100%"] } : { left: ["0%", "100%"] }}
-        transition={{
-          duration: 1.4,
-          repeat: Infinity,
-          ease: "linear",
-          delay,
-        }}
-      />
-    );
+  // The flow pulse conveys how requests move through the proxy, so it plays on
+  // every device (essential motion — WCAG 2.3.3 exception).
+  const Dot = ({ vertical }: { vertical: boolean }) => (
+    <motion.span
+      aria-hidden
+      className="absolute h-2 w-2 rounded-full"
+      style={{
+        background: to,
+        boxShadow: `0 0 8px 1px ${to}`,
+        ...(vertical
+          ? { left: "50%", marginLeft: -4 }
+          : { top: "50%", marginTop: -4 }),
+      }}
+      initial={vertical ? { top: "0%" } : { left: "0%" }}
+      animate={vertical ? { top: ["0%", "100%"] } : { left: ["0%", "100%"] }}
+      transition={{
+        duration: 1.4,
+        repeat: Infinity,
+        ease: "linear",
+        delay,
+      }}
+    />
+  );
 
   return (
     <div

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { TerminalChrome } from "./TerminalChrome";
 
@@ -66,19 +66,13 @@ function LogRow({ log, animate }: { log: Log; animate: boolean }) {
 }
 
 export function AnimatedTerminal() {
-  const reduce = useReducedMotion();
+  // The typing demo shows the tool in action, so it plays on every device
+  // (essential motion — WCAG 2.3.3 exception).
   const [charIndex, setCharIndex] = useState(0);
   const [bannerCount, setBannerCount] = useState(0);
   const [logCount, setLogCount] = useState(0);
 
   useEffect(() => {
-    if (reduce) {
-      setCharIndex(CMD.length);
-      setBannerCount(BANNER.length);
-      setLogCount(LOGS.length);
-      return;
-    }
-
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout>;
     const wait = (ms: number) =>
@@ -121,7 +115,7 @@ export function AnimatedTerminal() {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [reduce]);
+  }, []);
 
   const typing = charIndex < CMD.length;
   const showCursor = bannerCount === 0;
@@ -159,7 +153,7 @@ export function AnimatedTerminal() {
             {BANNER.slice(0, bannerCount).map((line, i) => (
               <motion.div
                 key={i}
-                initial={reduce ? false : { opacity: 0, x: -6 }}
+                initial={{ opacity: 0, x: -6 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.25 }}
                 className="whitespace-pre"
@@ -195,7 +189,7 @@ export function AnimatedTerminal() {
         {logCount > 0 && (
           <div className="mt-3 space-y-0.5">
             {LOGS.slice(0, logCount).map((log, i) => (
-              <LogRow key={`${log.time}-${i}`} log={log} animate={!reduce} />
+              <LogRow key={`${log.time}-${i}`} log={log} animate />
             ))}
           </div>
         )}
