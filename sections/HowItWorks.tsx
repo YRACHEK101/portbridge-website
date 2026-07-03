@@ -47,7 +47,7 @@ export function HowItWorks() {
           </div>
         </Reveal>
 
-        <RevealGroup className="mt-8 grid gap-4 md:grid-cols-3">
+        <RevealGroup className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           {steps.map((step, i) => (
             <RevealItem key={step.n}>
               <div className="relative h-full rounded-2xl border border-edge bg-panel p-5">

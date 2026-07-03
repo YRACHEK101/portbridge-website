@@ -19,7 +19,7 @@ export function Hero({ downloads }: { downloads: number | null }) {
         <div className="absolute right-[-10%] top-24 h-[420px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(192,132,252,0.16),transparent)]" />
       </div>
 
-      <div className="container-page grid items-center gap-12 pb-16 pt-28 sm:pt-32 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pb-24 lg:pt-36">
+      <div className="container-page grid grid-cols-1 items-center gap-12 pb-16 pt-28 sm:pt-32 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pb-24 lg:pt-36">
         <div>
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-edge bg-panel/70 py-1.5 pl-2 pr-3.5 text-sm text-ink-muted">
@@ -90,7 +90,7 @@ export function Hero({ downloads }: { downloads: number | null }) {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15} className="lg:pl-2">
+        <Reveal delay={0.15} className="min-w-0 lg:pl-2">
           <AnimatedTerminal />
         </Reveal>
       </div>

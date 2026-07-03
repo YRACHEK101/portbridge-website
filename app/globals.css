@@ -21,6 +21,8 @@
     text-rendering: optimizeLegibility;
     /* Safety net: never let the page itself scroll sideways on mobile. */
     overflow-x: clip;
+    /* Remove the grey tap flash on mobile taps. */
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Respect reduced-motion for every animation & transition. */

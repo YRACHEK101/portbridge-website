@@ -40,7 +40,7 @@ export function CommandBox({
       type="button"
       onClick={() => copy(command)}
       aria-label={copied ? "Copied to clipboard" : `Copy command: ${command}`}
-      className={`group flex w-full items-center justify-between gap-4 rounded-xl border border-edge bg-panel/80 text-left transition-all hover:border-frontend/50 hover:shadow-glow ${
+      className={`group flex w-full items-center justify-between gap-4 rounded-xl border border-edge bg-panel/80 text-left transition-all hover:border-frontend/50 hover:shadow-glow active:scale-[0.99] ${
         big ? "px-5 py-4" : "px-4 py-3"
       } ${className}`}
     >
